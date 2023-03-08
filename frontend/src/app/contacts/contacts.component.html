@@ -5,7 +5,7 @@
 <div class="search-container">
     <input class="w3-input w3-padding search" type="text" [(ngModel)]="searchVal" placeholder="חיפוש">
 </div>
-<span>אנשי קשר</span>
+<span>אנשי קשר    </span>
 
 <button class="w3-btn w3-round add" [routerLink]="['/', 'contact' ]"><i class="fa fa-user-plus"></i></button>
 
@@ -45,11 +45,16 @@
 </div>
 <div *ngIf="displayMode == 'folders'">
     <div class="container" *ngFor="let item of data | search : searchVal;">
-        <p (dblclick)="goToDetails(item)"> <i class="fa fa-folder-open icon"></i> <b>{{ item.firstName | slice:0:10}} {{ item.lastName | slice:0:9}}</b></p>
-
-        <div class="middle text">
-            <button class="w3-btn w3-round " [routerLink]="['/', 'contact', item.id]"><i class="fa fa-pen"></i>עריכה</button>
-            <button class="w3-btn w3-round " (click)="remove(item)"><i class="fa fa-trash"></i>מחיקה</button>
+        <p (dblclick)="goToDetails(item)"> <i class="fa fa-folder-open icon"></i> <b>{{ item.firstName | slice:0:7}} {{ item.lastName | slice:0:7}}</b></p>
+        <div class="largeScreen">
+            <div class="middle text">
+                <button class="w3-btn w3-round " [routerLink]="['/', 'contact', item.id]"><i class="fa fa-pen"></i>עריכה</button>
+                <button class="w3-btn w3-round " (click)="remove(item)"><i class="fa fa-trash"></i>מחיקה</button>
+            </div>
+        </div>
+        <div class="smallScreen">
+            <button class="w3-btn w3-round" [routerLink]="['/', 'contact', item.id]"><i class="fa fa-pen"></i>עריכה</button>
+            <button class="w3-btn w3-round" (click)="remove(item)"><i class="fa fa-trash"></i>מחיקה</button>
         </div>
     </div>
 </div>

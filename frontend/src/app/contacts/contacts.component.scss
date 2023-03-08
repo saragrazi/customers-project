@@ -17,7 +17,7 @@
 
 .search {
     margin-right: auto;
-    margin-left: 0;
+    margin-left: 13px;
     width: 30%;
     padding: 5px 10px;
 }
@@ -37,7 +37,7 @@ i {
 }
 
 span {
-    margin: 0 20px;
+    margin: 0 10px;
     font-size: 35px;
 }
 
@@ -85,6 +85,15 @@ span {
     }
 }
 
+@media (max-width: 450px) {
+    .smallScreen {
+        display: block !important;
+    }
+    .largeScreen {
+        display: none;
+    }
+}
+
 .w3-third {
     float: right;
 }
@@ -106,4 +115,8 @@ td {
 .buttom {
     position: absolute;
     bottom: 0;
+}
+
+.smallScreen {
+    display: none;
 }
