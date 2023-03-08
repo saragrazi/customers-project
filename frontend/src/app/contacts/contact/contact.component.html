@@ -1,0 +1,46 @@
+<h2 *ngIf="!contact">הוספת איש קשר</h2>
+<h2 *ngIf="contact">עריכת איש קשר</h2>
+<p>שדה המסומן ב* הוא שדה חובה</p>
+
+<form *ngIf="form" [formGroup]="form">
+    <div class="required">
+        <label>שם פרטי:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="firstName" placeholder="שם פרטי" name="firstName">
+    </div>
+
+    <div class="required">
+        <label>שם משפחה:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="lastName" placeholder="שם משפחה" name="lastName">
+    </div>
+
+    <div class="required">
+        <label>תאריך לידה:</label>
+        <input class="w3-input w3-border w3-round" type="date" formControlName="birthday" placeholder="תאריך לידה" name="birthday">
+    </div>
+
+    <div class="required">
+        <label>טלפון:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="phone" placeholder="טלפון" name="phone">
+    </div>
+
+    <div class="required">
+        <label>אימייל:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="email" placeholder="אימייל" name="email">
+    </div>
+
+
+    <div class="required">
+        <label>עיר:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="city" placeholder="עיר" name="city">
+    </div>
+
+    <div class="required">
+        <label>רחוב:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="street" placeholder="רחוב" name="street">
+    </div>
+    <button class="w3-btn w3-round btn" [routerLink]="['/', 'contacts']">ביטול</button>
+
+    <button *ngIf="!contact" class="w3-btn w3-round btn" [disabled]="!form.valid" (click)="add()">הוסף <i class="fa fa-plus"></i></button>
+    <button *ngIf="contact" class="w3-btn w3-round btn" (click)="reset()">החזר לפרטים הקודמים</button>
+    <button *ngIf="contact" class="w3-btn w3-round btn" [disabled]="!form.valid" (click)="save()">שמירה <i class="fa fa-save"></i></button>
+</form>

@@ -1,0 +1,12 @@
+<button class="w3-btn w3-round" [routerLink]="['/', 'customers']"><i class="fa fa-caret-right"></i>   חזור</button>
+<h2>פרטי לקוח</h2>
+<div>
+    <P>שם פרטי: {{ customer?.firstName }}</P>
+    <P>שם משפחה: {{ customer?.lastName }}</P>
+    <P>טלפון: {{ customer?.phone }}</P>
+    <P>אימייל: {{ customer?.email }}</P>
+    <P>מדינה: {{ customer?.country }}</P>
+    <P>עיר: {{ customer?.city }}</P>
+    <P>רחוב: {{ customer?.street }}</P>
+    <P>הערה: {{ customer?.remark }}</P>
+</div>

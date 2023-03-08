@@ -1,0 +1,37 @@
+.required label:after {
+    content: '*';
+    color: red;
+    padding-left: 10px;
+}
+
+.form {
+    padding: 20px 10px;
+}
+
+input {
+    padding: 12px 20px;
+    margin: 5px 16px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 70%;
+}
+
+textarea {
+    width: 70%;
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin: 5px 16px;
+}
+
+label {
+    margin-right: 6px;
+}
+
+.btn {
+    background-color: #471d1d;
+    color: white;
+    margin: 20px 10px;
+    padding: 8px 16px;
+}

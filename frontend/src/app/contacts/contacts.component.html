@@ -1,0 +1,75 @@
+<button class="w3-button mode" (click)="table()"><i class="fa fa-th-list"></i></button>
+<button class="w3-button mode" (click)="tickets()"><i class="fa fa-clone"></i></button>
+<button class="w3-button mode" (click)="folders()"><i class="fa fa-folder-open"></i></button>
+
+<div class="search-container">
+    <input class="w3-input w3-padding search" type="text" [(ngModel)]="searchVal" placeholder="חיפוש">
+</div>
+<span>אנשי קשר</span>
+
+<button class="w3-btn w3-round add" [routerLink]="['/', 'contact' ]"><i class="fa fa-user-plus"></i></button>
+
+<div *ngIf="displayMode == 'table'">
+
+    <table class="w3-table w3-striped w3-bordered" id="myTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>שם פרטי</th>
+                <th>שם משפחה</th>
+                <th>גיל</th>
+                <th class="notShow">טלפון</th>
+                <th class="notShow">אימייל</th>
+                <th>עיר</th>
+                <th class="notShow">רחוב</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data | search : searchVal; let i = index" (dblclick)="goToDetails(item)">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.firstName }}</td>
+                <td>{{ item.lastName }}</td>
+                <td>{{ item.birthday | age }}</td>
+                <td class="notShow">{{ item.phone }}</td>
+                <td class="notShow">{{ item.email }}</td>
+                <td>{{ item.city }}</td>
+                <td class="notShow">{{ item.street }}</td>
+                <td>
+                    <div class="w3-section buttons">
+                        <button class="w3-btn w3-round" [routerLink]="['/', 'contact', item.id]"><i class="fa fa-pen"></i></button>
+                        <button class="w3-btn w3-round" (click)="remove(item)"><i class="fa fa-trash"></i></button>
+
+                    </div>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<div *ngIf="displayMode == 'folders'">
+    <div class="container" *ngFor="let item of data | search : searchVal;">
+        <p (dblclick)="goToDetails(item)"> <i class="fa fa-folder-open icon"></i> <b>{{ item.firstName }} {{ item.lastName }}</b></p>
+
+        <div class="middle text">
+            <button class="w3-btn w3-round " [routerLink]="['/', 'contact', item.id]"><i class="fa fa-pen"></i>עריכה</button>
+            <button class="w3-btn w3-round " (click)="remove(item)"><i class="fa fa-trash"></i>מחיקה</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="displayMode == 'tickets'">
+    <div class="w3-row">
+        <div class="w3-third w3-padding" *ngFor="let item of data | search : searchVal;">
+            <div class="w3-container w3-card w3-round w3-center" (dblclick)="goToDetails(item)">
+                <h3><b>{{ item.firstName }} {{ item.lastName }}</b></h3>
+                <h5>{{ item.city }}</h5>
+
+                <div class="w3-section">
+                    <button class="w3-btn w3-round" [routerLink]="['/', 'contact', item.id]"><i class="fa fa-pen"></i>עריכה</button>
+                    <button class="w3-btn w3-round" (click)="remove(item)"><i class="fa fa-trash"></i>מחיקה</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

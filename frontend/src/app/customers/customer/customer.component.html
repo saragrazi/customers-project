@@ -1,0 +1,55 @@
+<h2 *ngIf="!customer">הוספת לקוח</h2>
+<h2 *ngIf="customer">עריכת לקוח</h2>
+<p>שדה המסומן ב* הוא שדה חובה</p>
+
+<form *ngIf="form" [formGroup]="form">
+    <div class="required">
+
+        <label>שם פרטי:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="firstName" placeholder="שם פרטי" name="firstName">
+    </div>
+
+    <div class="required">
+        <label>שם משפחה:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="lastName" placeholder="שם משפחה" name="lastName">
+    </div>
+
+
+    <div class="required">
+        <label>טלפון:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="phone" placeholder="טלפון" name="phone">
+    </div>
+
+    <div class="required">
+        <label>אימייל:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="email" placeholder="אימייל" name="email">
+    </div>
+
+
+    <div class="required">
+        <label>מדינה:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="country" placeholder="מדינה" name="country">
+    </div>
+
+    <div class="required">
+        <label>עיר:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="city" placeholder="עיר" name="city">
+    </div>
+
+    <div class="required">
+        <label>רחוב:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="street" placeholder="רחוב" name="street">
+    </div>
+
+
+    <label>הערה:</label>
+    <textarea class="w3-input w3-border w3-round" type="text" formControlName="remark" placeholder="הערה" name="remark"></textarea>
+
+
+
+    <button class="w3-btn w3-round btn" [routerLink]="['/', 'customers']">ביטול</button>
+
+    <button *ngIf="!customer" class="w3-btn w3-round  btn" [disabled]="!form.valid" (click)="add()">הוסף <i class="fa fa-plus"></i></button>
+    <button *ngIf="customer" class="w3-btn w3-round btn" (click)="reset()">החזר לפרטים הקודמים</button>
+    <button *ngIf="customer" class="w3-btn w3-round  btn" [disabled]="!form.valid" (click)="save()">שמירה <i class="fa fa-save"></i></button>
+</form>

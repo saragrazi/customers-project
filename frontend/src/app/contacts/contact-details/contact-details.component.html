@@ -1,0 +1,11 @@
+<button class="w3-btn w3-round" [routerLink]="['/', 'contacts']"><i class="fa fa-caret-right"></i>   חזור</button>
+<h2>פרטי איש קשר</h2>
+<div>
+    <p>שם פרטי: {{ contact?.firstName }}</p>
+    <p>שם משפחה: {{ contact?.lastName }}</p>
+    <p>תאריך לידה: {{ contact?.birthday | date : 'dd/MM/yyyy'}}</p>
+    <p>טלפון: {{ contact?.phone }}</p>
+    <p>אימייל: {{ contact?.email }}</p>
+    <p>עיר: {{ contact?.city }}</p>
+    <p>רחוב: {{ contact?.street }}</p>
+</div>

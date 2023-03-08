@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+body {
+    direction: rtl;
+    background-image: url("https://images.pexels.com/photos/313563/sand-pattern-wave-texture-313563.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    user-select: none;
+    cursor: default;
+    @media (max-width: 500px) {
+        font-size: 15px;
+    }
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: rgba(71, 29, 29, 0.657);
+}
+
+h2,
+p,
+label,
+input {
+    margin: 20px 10px;
+}
+
+table {
+    overflow-x: auto;
+}
+
+input.ng-dirty.ng-invalid {
+    border-bottom: 4px solid red !important;
+}

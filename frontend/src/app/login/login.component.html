@@ -1,0 +1,32 @@
+<h1>התחברות</h1>
+
+<form [formGroup]="loginForm">
+    <label><i class="fa fa-user"></i> שם משתמש:</label>
+    <input class="w3-input w3-round" type="text" formControlName="userName">
+
+    <div class="field">
+        <label><i class="fa fa-asterisk"></i> סיסמה:</label>
+        <input class="w3-input w3-round" type="password" formControlName="password">
+    </div>
+
+    <div *ngIf="errorMessage" class="w3-container w3-red">{{ errorMessage }}</div>
+
+    <button class='w3-button' [disabled]="!loginForm.valid" (click)="login()">התחברות <i class="fa fa-check"></i></button>
+
+
+    <button class="w3-button" *ngIf="!user">
+        <asl-google-signin-button></asl-google-signin-button>
+      </button>
+
+
+    <div *ngIf="user">
+        <img src="{{ user.photourl }}">
+        <div>
+            <h4>{{ user.name }}</h4>
+            <p>{{ user.email }}</p>
+        </div>
+    </div>
+    <p>
+        <a routerLink="/signup"><b>ליצירת חשבון חדש</b></a>
+    </p>
+</form>
