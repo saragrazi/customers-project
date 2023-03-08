@@ -88,3 +88,22 @@ span {
 .w3-third {
     float: right;
 }
+
+td {
+    max-width: 150px;
+    word-wrap: break-word;
+}
+
+.w3-card {
+    height: 220px;
+    max-width: 300px;
+}
+
+.nCard {
+    position: relative;
+}
+
+.buttom {
+    position: absolute;
+    bottom: 0;
+}

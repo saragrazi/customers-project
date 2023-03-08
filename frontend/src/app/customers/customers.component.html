@@ -24,8 +24,8 @@
             <tr *ngFor="let item of data | search : searchVal; let i = index" (dblclick)="goToDetails(item)">
                 <td>{{ i + 1 }}</td>
                 <td>{{ item.createTime | date : 'dd/MM/yyyy' }} </td>
-                <td>{{ item.firstName }}</td>
-                <td>{{ item.lastName }}</td>
+                <td>{{ item.firstName | slice:0:9}}</td>
+                <td>{{ item.lastName | slice:0:9}}</td>
                 <td class="notShow">{{ item.phone }}</td>
                 <td class="notShow">{{ item.email }}</td>
                 <td>
@@ -44,7 +44,7 @@
 
 <div *ngIf="displayMode == 'folders'">
     <div class="container" *ngFor="let item of data | search : searchVal;">
-        <p (dblclick)="goToDetails(item)"> <i class="fa fa-folder-open icon"></i> <b>{{ item.firstName }} {{ item.lastName }}</b></p>
+        <p (dblclick)="goToDetails(item)"> <i class="fa fa-folder-open icon"></i> <b>{{ item.firstName | slice:0:10}} {{ item.lastName | slice:0:9}}</b></p>
 
         <div class="middle text">
             <button class="w3-btn w3-round " [routerLink]="['/', 'customer', item.id]"><i class="fa fa-pen"></i>עריכה</button>
@@ -56,14 +56,16 @@
 <div *ngIf="displayMode == 'tickets'">
     <div class="w3-row">
         <div class="w3-third w3-padding" *ngFor="let item of data | search : searchVal;">
-            <div class="w3-container w3-card w3-round w3-center" (dblclick)="goToDetails(item)">
-                <h3><b>{{ item.firstName }} {{ item.lastName }}</b></h3>
-                <h5>{{ item.country }}</h5>
-                <h5>{{ item.city }}</h5>
+            <div class="nCard">
+                <div class="w3-container w3-card w3-round w3-center" (dblclick)="goToDetails(item)">
+                    <h3><b>{{ item.firstName | slice:0:15}} {{ item.lastName | slice:0:15}}</b></h3>
+                    <h5>{{ item.country }}</h5>
+                    <h5>{{ item.city }}</h5>
 
-                <div class="w3-section">
-                    <button class="w3-btn w3-round " [routerLink]="['/', 'customer', item.id]"><i class="fa fa-pen"></i>עריכה</button>
-                    <button class="w3-btn w3-round " (click)="remove(item)"><i class="fa fa-trash"></i>מחיקה</button>
+                    <div class="w3-section buttom">
+                        <button class="w3-btn w3-round " [routerLink]="['/', 'customer', item.id]"><i class="fa fa-pen"></i>עריכה</button>
+                        <button class="w3-btn w3-round " (click)="remove(item)"><i class="fa fa-trash"></i>מחיקה</button>
+                    </div>
                 </div>
             </div>
         </div>

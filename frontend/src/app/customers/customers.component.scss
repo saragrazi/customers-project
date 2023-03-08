@@ -41,6 +41,11 @@ td {
     text-align: center;
 }
 
+td {
+    max-width: 150px;
+    word-wrap: break-word;
+}
+
 i {
     color: #471d1d;
 }
@@ -95,4 +100,18 @@ i {
 
 .w3-third {
     float: right;
+}
+
+.w3-card {
+    height: 220px;
+    max-width: 300px;
+}
+
+.nCard {
+    position: relative;
+}
+
+.buttom {
+    position: absolute;
+    bottom: 0;
 }
