@@ -27,7 +27,7 @@ app.use(cors({
 
 app.use(express.json());
 
-app.listen(() => {
+app.listen(3000, () => {
     console.log('listening on 3000');
 });
 
