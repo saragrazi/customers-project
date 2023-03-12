@@ -69,7 +69,7 @@ exports.googleLogin = function(req, res) {
 }
 
 
-export function logout(req, res) {
+exports.logout = function(req, res) {
     if (req.session.user && req.session.user.provider === 'google') {
         const auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(() => {
@@ -82,7 +82,7 @@ export function logout(req, res) {
     }
 }
 
-export function login(req, res) {
+exports.login = function(req, res) {
     delete req.session.user;
 
     if (!req.session.attempts) {
