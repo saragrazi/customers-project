@@ -50,6 +50,7 @@ To use the site, follow these steps:
     Database: The site uses a database to store and manage all user, customer, and contact details.
     The backend of the application is built with Node.js and uses the MySQL database to store customer data.
 The frontend of the application is built with Angular and provides an intuitive user interface for managing customers and contacts data.
+In order to get the data structure of the website content, download the "project-data.sql" file to your computer and import it to your data storage location.
 
 ## Contributing
 
